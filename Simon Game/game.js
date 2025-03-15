@@ -14,7 +14,6 @@ let levelnum = 1
 let score = 0
 let num = 0//incremented each time 
 let clicks = 0 //count user clicks to check each selection
-let hclicks = 0 //to check help is clicked or not
 
 //core logic building
 //starting the game
@@ -70,15 +69,11 @@ function check() {
             clicks = 0//Made zero to take all the inputs till present
             num = 0//Made zero to check all the inputs till present
             userSequence = []//Takes the inputs of user till present
-            if (levelnum == 10)/*This is added to end the game at a finite number of turns and is completely optional*/ {
-                alert(`Congractulations you have won the game.\nScore:${score + 10}`)
-                reset()
-            }
             setTimeout(selectBox, 500)
         }
     }
     else/*Executed as soon as one of the use input is wrong*/ {
-        alert(`You Lose; Score ${score}`)
+        alert(`You Lose :(\nScore: ${score}\nThe Order was : ${sequence}`)
         reset()
     }
 }
