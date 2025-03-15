@@ -12,8 +12,8 @@ let userSequence = []//user selection
 let started = false
 let levelnum = 1
 let score = 0
-let num = 0
-let clicks = 0 //count user clicks
+let num = 0//incremented each time 
+let clicks = 0 //count user clicks to check each selection
 let hclicks = 0 //to check help is clicked or not
 
 //core logic building
@@ -43,41 +43,41 @@ function selectBox() {
 }
 //display the initial order
 function display(rand) {
-    box[rand].classList.add("flash")
+    box[rand].classList.add("flash")//adds the flashing effect to indicate the system selection 
     setTimeout(() => {
         box[rand].classList.remove("flash")
-    }, 300)
+    }, 300)//Remove the flash effect after 0.3s
 }
 //Store the user's activity
 playground.addEventListener("click", (e) => {
-    if (started) {
+    if (started)/*Checks if the user has started the game or not*/ {
         if (e.target.className == "box") {
-            clicks++
-            userSequence.push(e.target.id)
-            check()
+            clicks++//counts user clicks
+            userSequence.push(e.target.id)//adds the user selection to user sequence
+            check()//checks the users selection
         }
     }
-    else {
+    else/*executed if the user clicks the buttons without starting the game*/{
         alert("Please start the game")
     }
 })
 //To check if the user input is correct
 function check() {
-    if (userSequence[clicks - 1] == sequence[clicks - 1]) {
-        num++
-        if (num == sequence.length && num != 0) {
+    if (userSequence[clicks - 1] == sequence[clicks - 1])/*checks each of the user.s selections*/ {
+        num++//This states that each of the user input is correct
+        if (num == sequence.length && num != 0)/*Accessed when the complete user input and sustem selections match*/ {
             score += 10
-            clicks = 0
-            num = 0
-            userSequence = []
-            if (levelnum == 10) {
+            clicks = 0//Made zero to take all the inputs till present
+            num = 0//Made zero to check all the inputs till present
+            userSequence = []//Takes the inputs of user till present
+            if (levelnum == 10)/*This is added to end the game at a finite number of turns and is completely optional*/ {
                 alert(`Congractulations you have won the game.\nScore:${score + 10}`)
                 reset()
             }
             setTimeout(selectBox, 500)
         }
     }
-    else {
+    else/*Executed as soon as one of the use input is wrong*/ {
         alert(`You Lose; Score ${score}`)
         reset()
     }
