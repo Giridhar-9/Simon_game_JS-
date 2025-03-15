@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Says Game</title>
+    <!-- Link CSS file -->
+    <link rel="stylesheet" href="game.css">
 </head>
-<link rel="stylesheet" href="game.css">
 
 <body>
     <div class="main">
         <h2>Simon Game</h2>
+        <!-- Area to display level -->
         <h4>(Press the start button to begin)</h4>
+        <!-- Main playground -->
         <div class="play-area">
+            <!-- buttons of the game -->
             <button class="box" id="red" style="background-color: #e74c3c;
   box-shadow: 0px 5px 0px 0px #CE3323;"></button>
             <button class="box" id="green" style="background-color: #2ecc71;
@@ -22,10 +26,12 @@
             <button class="box" id="yellow" style="background-color: #f1c40f;
   box-shadow: 0px 5px 0px 0px #D8AB00;"></button>
         </div>
+        <!-- start and help buttons -->
         <button id="help-btn" class="btn">Help</button>
         <button id="start-btn" class="btn">Start</button>
     </div>
 </body>
+<!-- Link JavaScript file -->
 <script src="game.js"></script>
 
 </html>
