@@ -12,7 +12,7 @@ let userSequence = []//user selection
 let started = false
 let levelnum = 1
 let score = 0
-let num = 0//incremented each time 
+let num = 0//incremented each time the user's selection is correct
 let clicks = 0 //count user clicks to check each selection
 
 //core logic building
